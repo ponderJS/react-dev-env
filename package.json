@@ -1,0 +1,22 @@
+{
+  "name": "react-dev-env",
+  "version": "1.0.0",
+  "description": "A react development enviroment",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack -config --webpack.config.js"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "ponderJS",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  },
+  "devDependencies": {
+    "webpack": "1.12.14",
+    "jsx-lodaer": "0.13.2"
+  }
+}
