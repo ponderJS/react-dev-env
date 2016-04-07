@@ -1,4 +1,4 @@
 # react-dev-env
-A react development enviroment
+A react development enviroment.
 
 ## 基于React的开发环境
