@@ -1,7 +1,7 @@
 {
   "name": "react-dev-env",
   "version": "0.0.1",
-  "description": "A react development eviroment",
+  "description": "A react development enviroment",
   "main": "index.js",
   "scripts": {
     "test": "",
@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/ponderJS/react-dev-env/issues"
   },
-  "homepage": "https://github.com/ponderJS/react-dev-env#readme"
+  "homepage": "https://github.com/ponderJS/react-dev-env#readme",
+  "dependencies": {
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^1.12.14"
+  }
 }

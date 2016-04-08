@@ -4,7 +4,7 @@ module.exports = {
     entry: "./app/hello.jsx",
     // 输出
     output: {
-        path: "./built",
+        path: "./build",
         filename: "[name].js"
     },
     plugins: [ 
