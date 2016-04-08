@@ -1,22 +1,24 @@
 {
   "name": "react-dev-env",
-  "version": "0.1",
-  "description": "A react development enviroment",
+  "version": "0.0.1",
+  "description": "A react development eviroment",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -config --webpack.config.js"
+    "test": "",
+    "build": "webpack -config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ponderJS/react-dev-env.git"
   },
   "keywords": [
-    "react"
+    "react",
+    "webpack"
   ],
   "author": "ponderJS",
   "license": "MIT",
-  "dependencies": {
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+  "bugs": {
+    "url": "https://github.com/ponderJS/react-dev-env/issues"
   },
-  "devDependencies": {
-    "webpack": "1.12.14",
-    "jsx-lodaer": "0.13.2"
-  }
+  "homepage": "https://github.com/ponderJS/react-dev-env#readme"
 }
