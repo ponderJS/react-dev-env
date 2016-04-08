@@ -4,8 +4,7 @@
   "description": "A react development enviroment",
   "main": "index.js",
   "scripts": {
-    "test": "",
-    "build": "webpack -config webpack.config.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +25,13 @@
     "react-dom": "^15.0.0"
   },
   "devDependencies": {
+    "babel-core": "^6.7.5",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
     "webpack": "^1.12.14"
+  },
+  "devEngines": {
+    "node": "4.x || 5.x",
+    "npm": "2.x || 3.x"
   }
 }

@@ -7,6 +7,7 @@
 [Tt]mp/
 node_modules/
 $RECYCLE.BIN/
+.vscode/
 
 #### files ####
 

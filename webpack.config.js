@@ -1,11 +1,10 @@
-var webpack=require("webpack");
 module.exports = {
     // 入口
     entry: "./app/hello.jsx",
     // 输出
     output: {
         path: "./build",
-        filename: "[name].js"
+        filename: "main.js"
     },
     plugins: [ 
         // new webpack.CommonsChunkPlugin("common.js") //多个入口文件时可提取公共部分生成common.js文件
@@ -15,10 +14,14 @@ module.exports = {
       'react': 'window.React',
       'react-dom': 'window.ReactDOM'
     },
-    // 凡是遇到jsx结尾的，都用jsx-loader这个插件来加载，且启用harmony模式(支持ES6语法)
     module: {
         loaders: [
-            { test: /\.jsx$/,loader: "jsx-loader"}
+            { test: /\.jsx$/, 
+              loader: "babel-loader",
+              query: {
+                   presets: ['react'/*,'es2015'*/] //babel 6 模块化，所有内部组件都成为单独的包，此处是babel-loader插件预设
+              }
+            }
         ]
     }
 };
