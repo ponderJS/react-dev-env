@@ -1,20 +1,16 @@
 #### path ####
 
-[Bb]uil[dt]/
-[Dd]ebug/
-[Rr]elease/
-[Rr]esult[s]/
-[Tt]mp/
 node_modules/
 $RECYCLE.BIN/
 .vscode/
 
 #### files ####
+build/
 
 *.bak
 *.tmp
+*.log
 .DS_Store
 Desktop.ini
 ehthumbs.db
-npm-debug.log
 Thumbs.db

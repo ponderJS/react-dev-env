@@ -1,27 +1,27 @@
 module.exports = {
     // 入口
-    entry: "./app/hello.jsx",
+    entry: {
+        index:"./app/js/index.jsx",
+        hello:"./app/js/index.jsx"
+    },
     // 输出
     output: {
-        path: "./build",
-        filename: "main.js"
+        filename:"[name].js",
+        path:__dirname+"/build/js"
     },
-    plugins: [ 
-        // new webpack.CommonsChunkPlugin("common.js") //多个入口文件时可提取公共部分生成common.js文件
-    ],
-    // 表示这个依赖项是外部库，遇到require它不需要编译，在浏览器端对应window.React
     externals: {
-      'react': 'window.React',
-      'react-dom': 'window.ReactDOM'
+        "react": "React",
+        "react-dom":"ReactDOM",
+        "react-router":"ReactRouter",
+        "react-router-dom":"ReactRouterDOM",
+        "axios":"axios"
     },
     module: {
-        loaders: [
+        rules: [
             { test: /\.jsx$/, 
-              loader: "babel-loader",
-              query: {
-                   presets: ['react'/*,'es2015'*/] //babel 6 模块化，所有内部组件都成为单独的包，此处是babel-loader插件预设
-              }
+              use: ["babel-loader"]
             }
         ]
-    }
+    },
+    plugins:[]
 };
