@@ -1,8 +1,7 @@
 module.exports = {
     // 入口
     entry: {
-        index:"./app/js/index.jsx",
-        hello:"./app/js/index.jsx"
+        index:"./app/js/index.jsx"
     },
     // 输出
     output: {

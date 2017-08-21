@@ -1,11 +1,12 @@
 {
   "name": "react-dev-env",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A react development enviroment",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development node index.js",
-    "package": "cross-env NODE_ENV=package node index.js"
+    "package": "cross-env NODE_ENV=package node index.js",
+    "release": "cross-env NODE_ENV=production node index.js"
   },
   "repository": {
     "type": "git",

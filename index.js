@@ -1,5 +1,3 @@
-// const ENV=process.argv.slice(2)[0];
-
 let path=require('path'),
     webpack=require('webpack'),
     webpackConfig=require('./webpack.config.js'),
@@ -41,6 +39,12 @@ Object.keys(webpackConfig.entry).forEach(function(d){
     webpackConfig.plugins.push(new HtmlWebpackPlugin(opt));
 });
 
+if(process.env.NODE_ENV=='production'){
+    webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
+        compress: true
+    }));
+}
+
 
 // 开发
 if(process.env.NODE_ENV=='development'){
@@ -51,7 +55,7 @@ if(process.env.NODE_ENV=='development'){
         proxy = require('http-proxy-middleware'),
         apiServer=proxy('/api',{
             target: apiConfig.server,
-            changeOrigin: true 
+            changeOrigin: true
         }),
         compiler=webpack(webpackConfig);
 
@@ -65,12 +69,15 @@ if(process.env.NODE_ENV=='development'){
 
     server.listen('8080',function(){
         console.log('Develop server listening on 8080');
-        open('http://localhost:8080/','google chrome');
+        try{
+            open('http://localhost:8080/','google chrome');
+        }catch(e){
+            open('http://localhost:8080/');
+        }
     });
 
-}
-// 打包
-if(process.env.NODE_ENV=='package'){
+}else{
+    // 打包
     build();
 }
 
