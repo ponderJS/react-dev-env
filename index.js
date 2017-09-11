@@ -67,12 +67,12 @@ if(process.env.NODE_ENV=='development'){
         stats: { colors: true }
     }));
 
-    server.listen('8080',function(){
-        console.log('Develop server listening on 8080');
+    server.listen('8090',function(){
+        console.log('Develop server listening on 8090');
         try{
-            open('http://localhost:8080/','google chrome');
+            open('http://localhost:8090/','google chrome');
         }catch(e){
-            open('http://localhost:8080/');
+            open('http://localhost:8090/');
         }
     });
 
