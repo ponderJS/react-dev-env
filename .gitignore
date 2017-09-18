@@ -4,9 +4,9 @@ node_modules/
 $RECYCLE.BIN/
 .vscode/
 
-#### files ####
 build/
-
+node_modules/
+.idea/
 *.bak
 *.tmp
 *.log
