@@ -1,25 +1,23 @@
+
 module.exports = {
     // 入口
-    entry: {
-        index:"./app/js/index.jsx"
-    },
+    entry: {},
     // 输出
     output: {
-        filename:"[name].js",
-        path:__dirname+"/build/js"
+        filename: "[name].js",
+        path: __dirname + "/build"
     },
     externals: {
         "react": "React",
-        "react-dom":"ReactDOM",
-        "react-router-dom":"ReactRouterDOM",
-        "axios":"axios"
+        "react-dom": "ReactDOM"
     },
     module: {
         rules: [
-            { test: /\.jsx$/, 
-              use: ["babel-loader"]
+            {
+                test: /\.jsx$/i,
+                use: ["babel-loader"]
             }
         ]
     },
-    plugins:[]
+    plugins: []
 };

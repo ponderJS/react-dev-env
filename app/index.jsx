@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import XHR from 'axios';
+
+import Style from '../css/index.css';
 
 class Hello extends React.Component{
     render(){
@@ -8,4 +9,4 @@ class Hello extends React.Component{
     }
 }
 
-ReactDOM.render(<Hello />,document.getElementById('wrapper'));
+ReactDOM.render(<Hello />,document.getElementById('APP'));

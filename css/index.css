@@ -1,0 +1,12 @@
+@import url("normalize.css");
+
+
+/* APP Style
+   ========================================================================== */
+
+html,body{
+    height: 100%;
+}
+body>div.wrapper{
+    min-height: 100%;
+}

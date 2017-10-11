@@ -1,0 +1,17 @@
+module.exports=[
+    {   
+        entry:"./app/index.jsx",
+        route:"",
+        lib:["./lib/react.js","./lib/react-dom.js"]
+    },
+    {   
+        entry:"./app/index.jsx",
+        route:"hello",
+        lib:["./lib/react.js","./lib/react-dom.js"]
+    },
+    {   
+        entry:"./app/index.jsx",
+        route:"hello/world",
+        lib:["./lib/react.js","./lib/react-dom.js"]
+    }
+]

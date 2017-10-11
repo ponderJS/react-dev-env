@@ -1,12 +1,11 @@
 {
   "name": "react-dev-env",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A react development enviroment",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development node index.js",
-    "package": "cross-env NODE_ENV=package node index.js",
-    "release": "cross-env NODE_ENV=production node index.js"
+    "start": "node main.js",
+    "build": "node main.js production"
   },
   "repository": {
     "type": "git",
@@ -23,22 +22,20 @@
     "url": "https://github.com/ponderJS/react-dev-env/issues"
   },
   "homepage": "https://github.com/ponderJS/react-dev-env#readme",
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
-    "cross-env": "^5.0.5",
-    "express": "^4.15.4",
-    "fs-extra": "^4.0.1",
-    "html-webpack-plugin": "^2.30.1",
-    "http-proxy-middleware": "^0.17.4",
-    "open": "0.0.5",
-    "webpack": "^3.5.4",
-    "webpack-dev-middleware": "^1.12.0"
+    "babel-core": "~6.26.0",
+    "babel-loader": "~7.1.2",
+    "babel-preset-env": "~1.6.0",
+    "babel-preset-react": "~6.24.1",
+    "css-loader": "~0.28.7",
+    "express": "~4.15.4",
+    "extract-text-webpack-plugin": "~3.0.1",
+    "html-webpack-plugin": "~2.30.1",
+    "http-proxy-middleware": "~0.17.4",
+    "open": "~0.0.5",
+    "webpack": "~3.5.4",
+    "webpack-dev-middleware": "~1.12.0"
   },
   "devEngines": {
     "node": "8.x",
