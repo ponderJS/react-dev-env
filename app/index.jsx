@@ -1,11 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+var React=require('react'),
+    ReactDOM = require('react-dom');
+    Request=require('axios');
 
-import Style from '../css/index.css';
+    require('../css/index.css');
+
 
 class Hello extends React.Component{
     render(){
-        return <h1>Hello world</h1>;
+        return <h1>Hello world!</h1>;
     }
 }
 
