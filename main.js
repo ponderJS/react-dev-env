@@ -1,8 +1,9 @@
 process.env.NODE_ENV = process.argv.slice(2).length ? process.argv.slice(2)[0] : "development";
 
-const proxyServer = {
-    '/api': 'http://192.168.1.15:9882'
-};
+const port = 9090,
+    proxyServer = {
+        '/api': 'http://192.168.1.15:9882'
+    };
 
 let path = require('path'),
     webpack = require('webpack'),
@@ -37,7 +38,15 @@ pages.forEach(function (d) {
 webpackConfig.module.rules.push({
     test: /\.css/i,
     use: ExtractTextPlugin.extract({
-        use: ["css-loader"]
+        use: [{
+            loader: 'css-loader',
+            options: {
+                localIdentName: '[local]_[hash:6]',
+                modules: true,
+                url: false,
+                minimize: process.env.NODE_ENV == 'development' ? false : true
+            }
+        }]
     })
 });
 webpackConfig.plugins.push(new ExtractTextPlugin({
@@ -52,9 +61,8 @@ if (process.env.NODE_ENV == 'development') {
 
     new WebpackDevServer(compiler, {
         contentBase: './',
-        open: true,
         proxy: proxyServer
-    }).listen('9090', 'localhost')
+    }).listen(port, 'localhost');
 
 } else {
     // 压缩 
@@ -68,5 +76,6 @@ if (process.env.NODE_ENV == 'development') {
             console.error(err);
         }
         console.log('Compiled successfully!');
+        console.log('注意：还需将字体、图片、类库等文件复制到打包目录！');
     });
 }

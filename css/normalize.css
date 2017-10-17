@@ -1,8 +1,5 @@
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
-/* Document
-   ========================================================================== */
-
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in
@@ -14,9 +11,6 @@ html {
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
-
-/* Sections
-   ========================================================================== */
 
 /**
  * Remove the margin in all browsers (opinionated).
@@ -48,9 +42,6 @@ h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-
-/* Grouping content
-   ========================================================================== */
 
 /**
  * Add the correct display in IE 9-.
@@ -91,9 +82,6 @@ pre {
   font-family: monospace, monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
-
-/* Text-level semantics
-   ========================================================================== */
 
 /**
  * 1. Remove the gray background on active links in IE 10.
@@ -192,9 +180,6 @@ sup {
   top: -0.5em;
 }
 
-/* Embedded content
-   ========================================================================== */
-
 /**
  * Add the correct display in IE 9-.
  */
@@ -228,9 +213,6 @@ img {
 svg:not(:root) {
   overflow: hidden;
 }
-
-/* Forms
-   ========================================================================== */
 
 /**
  * 1. Change the font styles in all browsers (opinionated).
@@ -395,9 +377,6 @@ textarea {
   font: inherit; /* 2 */
 }
 
-/* Interactive
-   ========================================================================== */
-
 /*
  * Add the correct display in IE 9-.
  * 1. Add the correct display in Edge, IE, and Firefox.
@@ -416,9 +395,6 @@ summary {
   display: list-item;
 }
 
-/* Scripting
-   ========================================================================== */
-
 /**
  * Add the correct display in IE 9-.
  */
@@ -434,9 +410,6 @@ canvas {
 template {
   display: none;
 }
-
-/* Hidden
-   ========================================================================== */
 
 /**
  * Add the correct display in IE 10-.

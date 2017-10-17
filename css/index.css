@@ -1,12 +1,11 @@
-@import url("normalize.css");
+@import "./normalize.css";
+@import "./font-awesome.css";
 
-
-/* APP Style
-   ========================================================================== */
-
+/* APP Style */
 html,body{
     height: 100%;
 }
-body>div.wrapper{
+:global(.wrapper){
     min-height: 100%;
 }
+
