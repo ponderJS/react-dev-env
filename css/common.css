@@ -1,0 +1,16 @@
+@import "./font-awesome.css";
+@import "./normalize.css";
+
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    font: 14px/1.5em Helvetica,"Microsoft YaHei", Arial, sans-serif;
+    color:#333;
+}
+:global(.wrapper){
+    min-height: 100%;
+}
+
+

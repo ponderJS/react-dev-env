@@ -2,7 +2,7 @@ var React=require('react'),
     ReactDOM = require('react-dom');
     Request=require('axios');
 
-var style=require('../css/index.css');
+require('../css/common.css');
 
 
 class Hello extends React.Component{
@@ -10,8 +10,8 @@ class Hello extends React.Component{
         return <h1><i className="fa fa-home fa-fw"></i> Hello world!</h1>;
     }
     componentDidMount(){
-        console.log(style)
+        // console.log(style)
     }
 }
 
-ReactDOM.render(<Hello />,document.getElementById('APP'));
+ReactDOM.render(<Hello />,document.querySelector('.wrapper'));

@@ -1,11 +1,12 @@
 {
   "name": "react-dev-env",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A react development enviroment",
   "main": "index.js",
   "scripts": {
-    "start": "node main.js",
-    "build": "node main.js production"
+    "start": "node dev.js",
+    "package": "node pack.js",
+    "release": "node pack.js compress"
   },
   "repository": {
     "type": "git",
