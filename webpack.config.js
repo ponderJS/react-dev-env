@@ -37,6 +37,7 @@ module.exports = {
         ]
     },
     plugins: [
+        require('autoprefixer'),
         new ExtractTextPlugin({ filename: '[name].[hash:6].css' })
     ]
 };

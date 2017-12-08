@@ -6,13 +6,13 @@ let webpack = require('webpack'),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
     CopyWebpackPlugin = require('copy-webpack-plugin');
 
-
 // 根据配置生成多页面应用
 Object.keys(webpackConfig.entry).forEach(function (d) {
     let opt = {
         chunks: [d],
         filename: d + '.html',
-        template: './template.ejs'
+        template: './template.ejs',
+        time: new Date().toLocaleDateString()+' '+new Date().toLocaleTimeString()
     }
     webpackConfig.plugins.push(new HtmlWebpackPlugin(opt));
 });
@@ -35,6 +35,12 @@ webpackConfig.plugins.push(new CopyWebpackPlugin(
         copyUnmodified: true
     }
 ));
+
+let releaseDate=(function(){
+    var date=new Date(),n=date.getDate();
+	return date.getFullYear().toString()+(date.getMonth()+1)+(n>10?n:'0'+n);
+})();
+
 
 // 编译
 webpack(webpackConfig).run(function (err, stats) {

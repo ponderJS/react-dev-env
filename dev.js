@@ -12,7 +12,8 @@ Object.keys(webpackConfig.entry).forEach(function (d) {
     let opt = {
         chunks: [d],
         filename: d + '.html',
-        template: './template.ejs'
+        template: './template.ejs',
+        time: new Date().toLocaleDateString()+' '+new Date().toLocaleTimeString()
     }
     webpackConfig.plugins.push(new HtmlWebpackPlugin(opt));
 
@@ -32,4 +33,4 @@ new WebpackDevServer(webpack(webpackConfig), {
     proxy: {
         '/api': ''
     }
-}).listen(9090, 'localhost');
+}).listen(9090);
