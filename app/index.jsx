@@ -1,17 +1,18 @@
-var React = require('react'),
-    ReactDOM = require('react-dom'),
-    request = require('./utils/request.js');
+import 'react-dom';
+import {BrowserRouter as Router,Route} from 'react-router-dom';
 
-require('../css/common.css');
+import Home from './containers/home.jsx';
+import Hello from './containers/hello.jsx';
+import Bye from './containers/bye.jsx';
 
-
-class App extends React.Component {
-    render() {
-        return <h1><i className="fa fa-home fa-fw"></i> Hello world!</h1>;
-    }
-    componentDidMount() {
-        console.log(request);
-    }
-}
+const App = () => (
+    <Router>
+        <div>
+            <Route path="/" component={Home}/>
+            <Route path="/hello" component={Hello}/>
+            <Route path="/bye" component={Bye}/>
+        </div>
+    </Router>
+);
 
 ReactDOM.render(<App />, document.querySelector('.wrapper'));

@@ -1,8 +1,8 @@
-var axios = require('axios'),
-    source = axios.CancelToken.source();
+import axios from 'axios';
 
-var ajax = axios.create({
-    timeout: 3000,
+const source = axios.CancelToken.source();
+const ajax = axios.create({
+    timeout: 30000,
     cancelToken: source.token
 });
 
@@ -16,4 +16,4 @@ ajax.cancel = source.cancel;
 ajax.spread = axios.spread;
 ajax.all = axios.all;
 
-module.exports = ajax;
+export default ajax;

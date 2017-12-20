@@ -12,8 +12,7 @@ Object.keys(webpackConfig.entry).forEach(function (d) {
     let opt = {
         chunks: [d],
         filename: d + '.html',
-        template: './template.ejs',
-        time: new Date().toLocaleDateString()+' '+new Date().toLocaleTimeString()
+        template: './template.ejs'
     }
     webpackConfig.plugins.push(new HtmlWebpackPlugin(opt));
 
