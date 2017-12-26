@@ -31,7 +31,7 @@ module.exports = {
                 })
             },
             {
-                test: /\.jsx$/i,
+                test: /\.js(x)?$/i,
                 use: ["babel-loader"]
             }
         ]
