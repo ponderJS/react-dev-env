@@ -1,5 +1,5 @@
 import 'react-dom';
-import {HashRouter as Router,Route,Switch,Redirect} from 'react-router-dom';
+import {BrowserRouter as Router,Route,Switch,Redirect} from 'react-router-dom';
 
 import Home from './containers/home.jsx';
 import Hello from './containers/hello.jsx';

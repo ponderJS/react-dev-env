@@ -1,12 +1,12 @@
 {
   "name": "react-dev-env",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "A react development enviroment",
   "main": "index.js",
   "scripts": {
     "dev": "node dev.js",
-    "pack": "node pack.js",
-    "release": "node pack.js compress"
+    "pack": "node dev-pack.js",
+    "release": "node release.js"
   },
   "repository": {
     "type": "git",
@@ -49,11 +49,10 @@
     "npm": "5.x"
   },
   "browserslist": [
-    "Explorer 9",
-    "Edge",
-    "Chrome 40",
-    "Firefox 35",
-    "Safari 9",
-    "IOS 9.2"
+    "explorer 9",
+    "chrome 40",
+    "firefox 35",
+    "safari 9",
+    "ios 9.2"
   ]
 }

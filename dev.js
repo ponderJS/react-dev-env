@@ -1,34 +1,14 @@
 process.env.NODE_ENV = 'development';
 
-let pages = [],
+let path = require('path'),   
     webpack = require('webpack'),
     webpackConfig = require('./webpack.config.js'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
     WebpackDevServer = require('webpack-dev-server');
-
-
-// 根据配置生成多页面应用
-Object.keys(webpackConfig.entry).forEach(function (d) {
-    let opt = {
-        chunks: [d],
-        filename: d + '.html',
-        template: './template.ejs'
-    }
-    webpackConfig.plugins.push(new HtmlWebpackPlugin(opt));
-
-    // 多页面路径
-    if(d!='index'){
-        pages.push({ from: new RegExp('^\\/' + d + '$', 'i'), to: '/' + d + '.html' });
-    }
-
-});
 
 // 启动服务
 new WebpackDevServer(webpack(webpackConfig), {
-    contentBase: './',
-    historyApiFallback: {
-        rewrites: pages
-    },
+    contentBase: [path.join(__dirname),path.join(__dirname,'app')],
+    historyApiFallback: true,
     proxy: {
         '/api': ''
     }
