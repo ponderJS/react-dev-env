@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node dev.js",
     "pack": "node dev-pack.js",
-    "release": "node release.js"
+    "release": "node build.js"
   },
   "repository": {
     "type": "git",

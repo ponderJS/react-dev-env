@@ -1,4 +1,4 @@
-import '../style/common.css';
+import '../css/common.css';
 import ajax from '../utils/ajax.js';
 
 function Home(){

@@ -28,7 +28,7 @@ module.exports = {
                                 localIdentName: '[local]_[hash:6]',
                                 modules: true,
                                 url: false,
-                                minimize: process.env.NODE_ENV == 'development' ? false : true
+                                minimize: process.env.NODE_ENV == 'production' ? true : false
                             }
                         }
                     })
