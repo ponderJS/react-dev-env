@@ -42,7 +42,10 @@ module.exports = {
         plugins: [
             require('autoprefixer'),
             new ExtractTextPlugin({ filename: '[name].[hash:6].css' }),
-            new HtmlWebpackPlugin({ template: './template.ejs'})
+            new HtmlWebpackPlugin({ 
+                template: './template.ejs',
+                build: process.env.NODE_ENV == 'production' ? true : false 
+            })
         ]
     }
     
