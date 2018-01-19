@@ -1,0 +1,5 @@
+{
+    "DEBUG":true,
+    "API_HOST":"",
+    "PUBLIC_PATH":"http://localhost:9090/"
+}

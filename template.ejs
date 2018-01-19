@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>知因智慧</title>
+		<title>主页</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-		<% if(htmlWebpackPlugin.options.build) { %>
-		<link rel="stylesheet" href="libs/normalize.min.css" type="text/css"/>
-		<link rel="stylesheet" href="libs/font-awesome.min.css" type="text/css"/>
-		<script type="text/javascript" src="libs/react.min.js"></script>
-		<script type="text/javascript" src="libs/react-dom.min.js" ></script>
-		<script type="text/javascript" src="libs/react-router-dom.min.js" ></script>
-		<% } else { %>
-		<link rel="stylesheet" href="libs/normalize.css" type="text/css"/>
-		<link rel="stylesheet" href="libs/font-awesome.css" type="text/css"/>
-		<script type="text/javascript" src="libs/react.js"></script>
-		<script type="text/javascript" src="libs/react-dom.js" ></script>
-		<script type="text/javascript" src="libs/react-router-dom.js" ></script>
+		<% for (var css in htmlWebpackPlugin.options.style) { %>
+		<link rel="stylesheet" href="<%= htmlWebpackPlugin.options.style[css] %>" type="text/css"/>
+		<% } %>
+		<% for (var lib in htmlWebpackPlugin.options.libs) { %>
+		<script type="text/javascript" src="<%= htmlWebpackPlugin.options.libs[lib] %>"></script>
 		<% } %>
   	</head>
   	<body>

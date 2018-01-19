@@ -1,12 +1,12 @@
 {
   "name": "react-dev-env",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "A react development enviroment",
   "main": "index.js",
   "scripts": {
     "dev": "node dev.js",
     "pack": "node dev-pack.js",
-    "release": "node build.js"
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,6 @@
     "extract-text-webpack-plugin": "~3.0.1",
     "html-webpack-plugin": "~2.30.1",
     "webpack": "~3.5.4",
-    "webpack-dev-middleware": "~1.12.0",
     "webpack-dev-server": "~2.9.2"
   },
   "devEngines": {

@@ -1,7 +1,8 @@
 process.env.NODE_ENV = 'production';
 
 let webpack = require('webpack'),
-    webpackConfig = require('./webpack.config.js'),
+    appConfig = require('./app-config.json'),
+    webpackConfig = require('./webpack-config.js'),
     WebpackDevServer = require('webpack-dev-server'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
@@ -25,8 +26,10 @@ webpackConfig.plugins.push(new CopyWebpackPlugin(
 
 new WebpackDevServer(webpack(webpackConfig), {
     contentBase: webpackConfig.output.path,
-    historyApiFallback: true,
+    historyApiFallback: {
+        verbose:true
+    },
     proxy: {
-        '/api': ''
+        '/api': appConfig.API_HOST
     }
 }).listen(9090);

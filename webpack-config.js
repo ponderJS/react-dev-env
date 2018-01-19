@@ -1,17 +1,23 @@
 let path = require('path'),
+    appConfig = require('./app-config.json'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const isProduction = process.env.NODE_ENV == 'production';
+const style = ['libs/font-awesome.css', 'libs/normalize.css'];
+const libs = ['libs/react.js', 'libs/react-dom.js', 'libs/react-router-dom.js'];
 
 
 module.exports = {
     // 入口
     entry: {
-        index: './app/index.jsx'
+        main: './app/main.jsx'
     },
     // 输出
     output: {
-        filename: '[name].[hash:6].js' + today(),
-        path: path.resolve('./build')
+        filename: '[name].[hash:6].js',
+        path: path.resolve('./build'),
+        publicPath: appConfig.PUBLIC_PATH
     },
     externals: {
         react: 'React',
@@ -29,7 +35,7 @@ module.exports = {
                             localIdentName: '[local]_[hash:8]',
                             modules: true,
                             url: false,
-                            minimize: process.env.NODE_ENV == 'production' ? true : false
+                            minimize: isProduction
                         }
                     }
                 })
@@ -45,15 +51,8 @@ module.exports = {
         new ExtractTextPlugin({ filename: '[name].[hash:6].css' }),
         new HtmlWebpackPlugin({
             template: './template.ejs',
-            build: process.env.NODE_ENV == 'production' ? true : false
+            libs: libs.map((d) => appConfig.PUBLIC_PATH + d.replace(/\.js$/i, isProduction ? '.min.js' : '.js')),
+            style: style.map((d) => appConfig.PUBLIC_PATH + d.replace(/\.css$/i, isProduction ? '.min.css' : '.css'))
         })
     ]
 }
-
-function today() {
-    let date = new Date(),
-        month = date.getMonth() + 1,
-        day = date.getDate();
-    return process.env.NODE_ENV == 'production' ? '?'+date.getFullYear().toString() + (month < 10 ? '0' + month : month) + (day < 10 ? '0' + day : day):'';
-}
-
