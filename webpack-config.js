@@ -11,7 +11,7 @@ const libs = ['libs/react.js', 'libs/react-dom.js', 'libs/react-router-dom.js'];
 module.exports = {
     // 入口
     entry: {
-        main: './app/main.jsx'
+        main: './app/main.js'
     },
     // 输出
     output: {
@@ -42,6 +42,7 @@ module.exports = {
             },
             {
                 test: /\.js(x)?$/i,
+                exclude:'/node_modules/',
                 use: ['babel-loader']
             }
         ]

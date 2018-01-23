@@ -1,7 +1,7 @@
 import {Route} from 'react-router-dom';
 
-import Hello from './hello.jsx';
-import Bye from './bye.jsx';
+import Hello from './hello.js';
+import Bye from './bye.js';
 
 function Page({match}){
     return (

@@ -7,9 +7,9 @@ import {Component} from 'react';
 import {render as Render} from 'react-dom';
 import {BrowserRouter as Router,Route,Switch,Redirect} from 'react-router-dom';
 
-import Home from './containers/home.jsx';
-import Page from './containers/page.jsx';
-import NotFound from './containers/404.jsx';
+import Home from './containers/home.js';
+import Page from './containers/page.js';
+import NotFound from './containers/404.js';
 
 import './css/main.css';
 
