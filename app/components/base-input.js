@@ -9,9 +9,8 @@ import PropTypes from 'prop-types';
 class BaseInput extends Component {
     
     render(){
-        var inputClassName='input'+(!!this.props.inputClassName?' '+this.props.inputClassName:'');
         return (
-            <div className={inputClassName}>
+            <div className={this.props.inputClassName}>
                 <input type={this.props.inputType} name={this.props.inputName} id={this.props.inputId} placeholder={this.props.placeholder} />
                 {this.props.children}
             </div>
@@ -19,14 +18,13 @@ class BaseInput extends Component {
     }
 }
 
-BaseInput.defaultProps = {
-    inputType:'text'
-}
-
 BaseInput.propTypes = {
-    className: PropTypes.string,
-    inputId: PropTypes.string,
+    inputClassName: PropTypes.string.isRequired,
+    inputType: PropTypes.string.isRequired,
     inputName: PropTypes.string,
+    inputId: PropTypes.string,
+    disabled: PropTypes.bool,
+    value: PropTypes.any,
     placeholder: PropTypes.string
 }
 

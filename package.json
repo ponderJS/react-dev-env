@@ -25,6 +25,7 @@
   "homepage": "https://github.com/ponderJS/react-dev-env#readme",
   "dependencies": {
     "axios": "^0.16.2",
+    "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "redux": "^3.7.2"
   },
