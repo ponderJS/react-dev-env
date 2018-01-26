@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
-class Checkbox extends Component {
+class CheckboxOnly extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -22,6 +22,7 @@ class Checkbox extends Component {
             onFocus,
             onBlur,
             onClick,
+            onChange,
             autoFocus,
             value,
             // ...others
@@ -33,26 +34,25 @@ class Checkbox extends Component {
         //     }
         //     return prev;
         // }, {});
-        
         let classString = ClassNames(defaultClassName, className, {
             [`${defaultClassName}-checked`]: checked,
             [`${defaultClassName}-disabled`]: disabled
         });
-
         return (
             <span className={classString} style={style}>
                 <input
                     id={id}
                     name={name}
                     type={type}
+                    value={value}
                     readOnly={readOnly}
                     disabled={disabled}
                     tabIndex={tabIndex}
+                    autoFocus={autoFocus}
                     checked={checked}
-                    onClick={onClick}
                     onFocus={onFocus}
                     onBlur={onBlur}
-                    autoFocus={autoFocus}
+                    onClick={onClick}
                     onChange={this.handleChange}
                 />
                 <span className={`${defaultClassName}-inner`} />
@@ -68,6 +68,8 @@ class Checkbox extends Component {
         props.onChange({
             target: {
                 checked: e.target.checked,
+                name:props.name,
+                value:props.value
                 // ...props
             },
             stopPropagation() {
@@ -81,7 +83,7 @@ class Checkbox extends Component {
 
 }
 
-const defaultProps = {
+CheckboxOnly.defaultProps = {
     defaultClassName: 'checkbox',
     type: 'checkbox',
     disabled: false,
@@ -89,7 +91,7 @@ const defaultProps = {
     onChange(){},
 }
 
-const propTypes = {
+CheckboxOnly.propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
     type: PropTypes.string,
@@ -108,7 +110,6 @@ const propTypes = {
     onClick: PropTypes.func
 }
 
-Checkbox.defaultProps = defaultProps;
-Checkbox.propTypes = propTypes;
 
-export default Checkbox;
+
+export {CheckboxOnly};
