@@ -2,25 +2,22 @@ import {Component} from 'react';
 import {CheckboxOnly as Checkbox} from './checkbox';
 import PropTypes from 'prop-types';
 
-// function Radio (props){
-//     return <Checkbox  {...props} type={'radio'} defaultClassName={'radio'} />
-// }
-
 class Radio extends Component{
     constructor(props){
         super(props);
     }
     render(){
-        const {
+        let {
             name,
             value,
             labelText,
             defaultClassName,
+            ...others
         } = this.props;
         return (
             <div className={`${defaultClassName}-wrapper`}>
-                <Checkbox name={name} value={value} id={`${name}-${value}`} type={'radio'} defaultClassName={defaultClassName}/>
-                <label htmlFor={`${name}-${value}`}>{labelText}</label>
+                <Checkbox name={name} value={value} id={`$radio-${name}-${value}`} type={'radio'} defaultClassName={defaultClassName} {...others} />
+                <label htmlFor={`$radio-${name}-${value}`}>{labelText}</label>
             </div>
         )
     }

@@ -3,8 +3,10 @@
         "react",
         ["env",{
             "targets":{
-                "ie":9
+                "ie":9,
+                "chrome":35
             }
         }]
-    ]
+    ],
+    "plugins": ["transform-object-rest-spread"]
 }

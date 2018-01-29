@@ -1,11 +1,12 @@
-import { Component } from 'react';
+import { PureComponent, Component } from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
-class CheckboxOnly extends Component {
+class CheckboxOnly extends PureComponent {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.inputRef = this.inputRef.bind(this);
     }
     render() {
         let {
@@ -25,15 +26,14 @@ class CheckboxOnly extends Component {
             onChange,
             autoFocus,
             value,
-            // ...others
+            ...others
         } = this.props;
-
-        // let elementAttrs = Object.keys(others).reduce((prev, key) => {
-        //     if (key.substr(0, 5) === 'aria-' || key.substr(0, 5) === 'data-' || key === 'role') {
-        //         prev[key] = others[key];
-        //     }
-        //     return prev;
-        // }, {});
+        let elementAttrs = Object.keys(others).reduce((prev, key) => {
+            if (key.substr(0, 5) === 'aria-' || key.substr(0, 5) === 'data-' || key === 'role') {
+                prev[key] = others[key];
+            }
+            return prev;
+        }, {});
         let classString = ClassNames(defaultClassName, className, {
             [`${defaultClassName}-checked`]: checked,
             [`${defaultClassName}-disabled`]: disabled
@@ -54,6 +54,8 @@ class CheckboxOnly extends Component {
                     onBlur={onBlur}
                     onClick={onClick}
                     onChange={this.handleChange}
+                    ref={this.inputRef}
+                    {...elementAttrs}
                 />
                 <span className={`${defaultClassName}-inner`} />
             </span>
@@ -61,24 +63,23 @@ class CheckboxOnly extends Component {
     }
 
     handleChange(e) {
-        const { props } = this;
+        let { props, input } = this;
         if (props.disabled) {
             return;
         }
         props.onChange({
-            target: {
-                checked: e.target.checked,
-                name:props.name,
-                value:props.value
-                // ...props
-            },
+            target: input,
             stopPropagation() {
                 e.stopPropagation();
             },
             preventDefault() {
                 e.preventDefault();
             },
+            props: { ...props }
         });
+    }
+    inputRef(node) {
+        this.input = node;
     }
 
 }
@@ -88,13 +89,13 @@ CheckboxOnly.defaultProps = {
     type: 'checkbox',
     disabled: false,
     checked: false,
-    onChange(){},
+    onChange() { },
 }
 
 CheckboxOnly.propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
-    type: PropTypes.string,
+    type: PropTypes.oneOf(['checkbox', 'radio']).isRequired,
     value: PropTypes.string,
     style: PropTypes.object,
     defaultClassName: PropTypes.string,
@@ -111,5 +112,35 @@ CheckboxOnly.propTypes = {
 }
 
 
+class Checkbox extends Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        const {
+            name,
+            labelText,
+            defaultClassName,
+            ...others
+        } = this.props;
+        return (
+            <div className={`${defaultClassName}-wrapper`}>
+                <CheckboxOnly name={name} id={`$checkbox-${name}`} type={'checkbox'} defaultClassName={defaultClassName} {...others} />
+                <label htmlFor={`$checkbox-${name}`}>{labelText}</label>
+            </div>
+        )
+    }
+}
 
-export {CheckboxOnly};
+Checkbox.defaultProps = {
+    defaultClassName: 'checkbox',
+}
+
+Checkbox.propTypes = {
+    name: PropTypes.string.isRequired,
+    labelText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+};
+
+
+
+export { CheckboxOnly, Checkbox as default };
