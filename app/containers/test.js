@@ -6,13 +6,12 @@ import Input from '../components/input';
 class Test extends Component {
     constructor(props) {
         super(props);
-        this.checkBoxHandler = this.checkBoxHandler.bind(this);
         this.state = {
             checkbox: false,
             radio: null
         }
     }
-    checkBoxHandler(e) {
+    checkBoxHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.type == 'checkbox' ? e.target.checked : e.target.value
         });
@@ -34,9 +33,9 @@ class Test extends Component {
                     <CheckboxOnly /> <span>受控组件不可操作</span>
                 </div>
 
-                <h3>输入框</h3>  
-                <Input placeholder={'请输入'} onChange={e=>{console.log(e.target,e.target.value)}} />
-                <Input disabled={true} placeholder={'请输入'} onClick={e=>{console.log(e.target)}}/>
+                <h3>输入框</h3>
+                <Input placeholder={'请输入'} onChange={e => { console.log(e.target, e.target.value) }} />
+                <Input disabled={true} placeholder={'请输入'} onClick={e => { console.log(e.target) }} />
             </form>
         );
     }

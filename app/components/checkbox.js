@@ -10,7 +10,7 @@ import ClassNames from 'classnames';
 class CheckboxOnly extends PureComponent {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChange = props.onChange.bind(this);
     }
     render() {
         let {
@@ -58,31 +58,12 @@ class CheckboxOnly extends PureComponent {
                     onBlur={onBlur}
                     onClick={onClick}
                     onChange={this.handleChange}
-                    ref={this.inputRef.bind(this)}
                     {...elementAttrs}
                 />
                 <span className={`${defaultClassName}-inner`} />
             </span>
         );
     }
-
-    handleChange(e) {
-        let { props, input } = this;
-        props.onChange({
-            target: input,
-            stopPropagation() {
-                e.stopPropagation();
-            },
-            preventDefault() {
-                e.preventDefault();
-            },
-            props: { ...props }
-        });
-    }
-    inputRef(node) {
-        this.input = node;
-    }
-
 }
 
 CheckboxOnly.defaultProps = {
