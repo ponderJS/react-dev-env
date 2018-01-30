@@ -1,8 +1,8 @@
-import {Component} from 'react';
+import {PureComponent} from 'react';
 import {CheckboxOnly as Checkbox} from './checkbox';
 import PropTypes from 'prop-types';
 
-class Radio extends Component{
+class Radio extends PureComponent{
     constructor(props){
         super(props);
     }

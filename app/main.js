@@ -1,8 +1,3 @@
-/**
- * author: 
- * date: 
- */
-
 import {Component} from 'react';
 import {render as Render} from 'react-dom';
 import {BrowserRouter as Router,Route,Switch,Redirect} from 'react-router-dom';

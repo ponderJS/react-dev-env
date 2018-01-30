@@ -65,12 +65,19 @@ label[for|='$checkbox'], label[for|='$radio'] {
     position: relative;
     display: inline-block;
     width: 200px;
-    height: 32px;
+    height: calc(2em + 6px);
 }
 
 :global .input>input, :global .input>input {
     width: 100%;
     height: 100%;
+}
+
+:global .input-error > input {
+    border-color:#dd0a0a !important;
+}
+:global .input-error > input::placeholder{
+    color:#dd0a0a;
 }
 
 /* 单选框/复选框 */

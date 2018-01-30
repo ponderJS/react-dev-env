@@ -1,9 +1,7 @@
 import { Component } from 'react';
-
-import BaseInput from '../components/base-input';
-
 import Checkbox, { CheckboxOnly } from '../components/checkbox';
 import Radio from '../components/radio';
+import Input from '../components/input';
 
 class Test extends Component {
     constructor(props) {
@@ -36,6 +34,9 @@ class Test extends Component {
                     <CheckboxOnly /> <span>受控组件不可操作</span>
                 </div>
 
+                <h3>输入框</h3>  
+                <Input placeholder={'请输入'} onChange={e=>{console.log(e.target,e.target.value)}} />
+                <Input disabled={true} placeholder={'请输入'} onClick={e=>{console.log(e.target)}}/>
             </form>
         );
     }

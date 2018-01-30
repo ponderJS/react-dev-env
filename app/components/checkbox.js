@@ -1,4 +1,9 @@
-import { PureComponent, Component } from 'react';
+/**
+ * author: ponderJS
+ * create: 2018.01.29
+ */
+
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
@@ -6,7 +11,6 @@ class CheckboxOnly extends PureComponent {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        this.inputRef = this.inputRef.bind(this);
     }
     render() {
         let {
@@ -54,7 +58,7 @@ class CheckboxOnly extends PureComponent {
                     onBlur={onBlur}
                     onClick={onClick}
                     onChange={this.handleChange}
-                    ref={this.inputRef}
+                    ref={this.inputRef.bind(this)}
                     {...elementAttrs}
                 />
                 <span className={`${defaultClassName}-inner`} />
@@ -64,9 +68,6 @@ class CheckboxOnly extends PureComponent {
 
     handleChange(e) {
         let { props, input } = this;
-        if (props.disabled) {
-            return;
-        }
         props.onChange({
             target: input,
             stopPropagation() {
@@ -100,7 +101,7 @@ CheckboxOnly.propTypes = {
     style: PropTypes.object,
     defaultClassName: PropTypes.string,
     className: PropTypes.string,
-    tabIndex: PropTypes.string,
+    tabIndex: PropTypes.number,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     readOnly: PropTypes.bool,
@@ -112,7 +113,7 @@ CheckboxOnly.propTypes = {
 }
 
 
-class Checkbox extends Component {
+class Checkbox extends PureComponent {
     constructor(props) {
         super(props);
     }

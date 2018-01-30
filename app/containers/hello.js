@@ -1,6 +1,3 @@
-import BaseInput from '../components/base-input.js';
-
-import style from './hello.css';
 
 function Hello(){
     return <div>
