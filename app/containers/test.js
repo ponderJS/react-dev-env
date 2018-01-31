@@ -8,12 +8,18 @@ class Test extends Component {
         super(props);
         this.state = {
             checkbox: false,
-            radio: null
+            radio: null,
+            val:''
         }
     }
     checkBoxHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.type == 'checkbox' ? e.target.checked : e.target.value
+        });
+    }
+    inputChangeHandler = (e) =>{
+        this.setState({
+            val:e.target.value
         });
     }
     render() {
@@ -34,8 +40,9 @@ class Test extends Component {
                 </div>
 
                 <h3>输入框</h3>
-                <Input placeholder={'请输入'} onChange={e => { console.log(e.target, e.target.value) }} />
-                <Input disabled={true} placeholder={'请输入'} onClick={e => { console.log(e.target) }} />
+                <label>输入框</label>
+                <Input placeholder={'请输入'} value={this.state.val} onChange={this.inputChangeHandler} />
+                <Input disabled={true} placeholder={'请输入'} />
             </form>
         );
     }

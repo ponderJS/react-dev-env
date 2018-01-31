@@ -1,8 +1,8 @@
 process.env.NODE_ENV = 'production';
 
 let webpack = require('webpack'),
-    appConfig = require('./app-config.json'),
-    webpackConfig = require('./webpack-config.js'),
+    appConfig = require('./app.config.json'),
+    webpackConfig = require('./webpack.config.js'),
     WebpackDevServer = require('webpack-dev-server'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CleanWebpackPlugin = require('clean-webpack-plugin'),

@@ -3,8 +3,7 @@
         "react",
         ["env",{
             "targets":{
-                "ie":9,
-                "chrome":35
+                "ie":9
             }
         }]
     ],

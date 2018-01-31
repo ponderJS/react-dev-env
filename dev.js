@@ -2,8 +2,8 @@ process.env.NODE_ENV = 'development';
 
 let path = require('path'),
     webpack = require('webpack'),
-    appConfig = require('./app-config.json'),
-    webpackConfig = require('./webpack-config.js'),
+    appConfig = require('./app.config.json'),
+    webpackConfig = require('./webpack.config.js'),
     WebpackDevServer = require('webpack-dev-server');
 
 // 启动服务
