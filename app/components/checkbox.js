@@ -30,11 +30,11 @@ class CheckboxOnly extends PureComponent {
             onChange,
             autoFocus,
             value,
-            ...others
+            ...otherProps
         } = this.props;
-        let elementAttrs = Object.keys(others).reduce((prev, key) => {
+        let elementAttrs = Object.keys(otherProps).reduce((prev, key) => {
             if (key.substr(0, 5) === 'aria-' || key.substr(0, 5) === 'data-' || key === 'role') {
-                prev[key] = others[key];
+                prev[key] = otherProps[key];
             }
             return prev;
         }, {});
@@ -103,11 +103,11 @@ class Checkbox extends PureComponent {
             name,
             labelText,
             defaultClassName,
-            ...others
+            ...otherProps
         } = this.props;
         return (
             <div className={`${defaultClassName}-wrapper`}>
-                <CheckboxOnly name={name} id={`$checkbox-${name}`} type={'checkbox'} defaultClassName={defaultClassName} {...others} />
+                <CheckboxOnly name={name} id={`$checkbox-${name}`} type={'checkbox'} defaultClassName={defaultClassName} {...otherProps} />
                 <label htmlFor={`$checkbox-${name}`}>{labelText}</label>
             </div>
         )

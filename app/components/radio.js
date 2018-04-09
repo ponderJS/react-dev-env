@@ -12,11 +12,11 @@ class Radio extends PureComponent{
             value,
             labelText,
             defaultClassName,
-            ...others
+            ...otherProps
         } = this.props;
         return (
             <div className={`${defaultClassName}-wrapper`}>
-                <Checkbox name={name} value={value} id={`$radio-${name}-${value}`} type={'radio'} defaultClassName={defaultClassName} {...others} />
+                <Checkbox name={name} value={value} id={`$radio-${name}-${value}`} type={'radio'} defaultClassName={defaultClassName} {...otherProps} />
                 <label htmlFor={`$radio-${name}-${value}`}>{labelText}</label>
             </div>
         )
