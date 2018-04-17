@@ -1,6 +1,4 @@
-let path = require('path'),
-    appConfig = require('./app.config.json'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin'),
+let ExtractTextPlugin = require('extract-text-webpack-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV == 'production';
@@ -9,42 +7,30 @@ const libs = ['libs/react.js', 'libs/react-dom.js', 'libs/react-router-dom.js'];
 
 
 module.exports = {
-    // 入口
     entry: {
-        main: './app/main.js'
+        main: './src/main.jsx'
     },
-    // 输出
     output: {
         filename: '[name].[hash:6].js',
-        path: path.resolve('./build'),
-        publicPath: appConfig.PUBLIC_PATH
-    },
-    externals: {
-        react: 'React',
-        'react-dom': 'ReactDOM',
-        'react-router-dom': 'ReactRouterDOM'
+        path: __dirname + '/dist'
     },
     module: {
         rules: [
             {
-                test: /\.css$/i,
+                test: /\.less$/i,
                 use: ExtractTextPlugin.extract({
                     use: [
                         {
-                            loader: 'css-loader',
-                            options: {
-                                localIdentName: '[local]_[hash:8]',
-                                modules: true,
-                                url: false,
-                                minimize: isProduction
-                            }
+                            loader: 'css-loader'
                         },
-                        'postcss-loader'
+                        {
+                            loader: 'less-loader', options: { javascriptEnabled: true }
+                        }
                     ]
                 })
             },
             {
-                test: /\.js(x)?$/i,
+                test: /\.jsx?$/i,
                 exclude:'/node_modules/',
                 use: ['babel-loader']
             }
@@ -52,10 +38,6 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({ filename: '[name].[hash:6].css' }),
-        new HtmlWebpackPlugin({
-            template: './template.ejs',
-            libs: libs.map((d) => appConfig.PUBLIC_PATH + d.replace(/\.js$/i, isProduction ? '.min.js' : '.js')),
-            style: style.map((d) => appConfig.PUBLIC_PATH + d.replace(/\.css$/i, isProduction ? '.min.css' : '.css'))
-        })
+        new HtmlWebpackPlugin({ template: './template.ejs' })
     ]
 }
