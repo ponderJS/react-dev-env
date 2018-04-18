@@ -5,7 +5,7 @@ import {HashRouter as Router,Route,Switch,Redirect} from 'react-router-dom';
 import Home from './pages/home.jsx';
 import NotFound from './pages/404.jsx';
 
-import 'antd/dist/antd.less';
+import './main.less';
 
 class App extends Component {
     render(){
@@ -13,8 +13,8 @@ class App extends Component {
             <Router>
                 <Switch>
                     <Route exact path="/home" component={Home} />
+                    <Redirect exact from="/" to="/home" />
                     <Route component={NotFound} />
-                    <Redirect from="/" to="/home" />
                 </Switch>
             </Router>
         );

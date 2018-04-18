@@ -1,6 +1,6 @@
 {
   "name": "react-dev-env",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "A react development enviroment",
   "main": "index.js",
   "scripts": {
@@ -23,11 +23,9 @@
   },
   "homepage": "https://github.com/ponderJS/react-dev-env#readme",
   "dependencies": {
-    "ajv": "^5.5.2",
     "antd": "^3.4.1",
     "axios": "^0.16.2",
-    "classnames": "^2.2.5",
-    "css-loader": "^0.28.11",
+    "d3": "^5.1.0",
     "prop-types": "^15.6.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -43,6 +41,7 @@
     "babel-preset-react": "~6.24.1",
     "clean-webpack-plugin": "~0.1.17",
     "copy-webpack-plugin": "~4.2.3",
+    "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "~2.30.1",
     "less": "^3.0.1",

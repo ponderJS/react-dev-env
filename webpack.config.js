@@ -16,7 +16,10 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     use: [
                         {
-                            loader: 'css-loader'
+                            loader: 'css-loader',
+                            options: {
+                                url: false
+                            }
                         },
                         {
                             loader: 'postcss-loader',
