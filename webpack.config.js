@@ -1,11 +1,6 @@
 let ExtractTextPlugin = require('extract-text-webpack-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const isProduction = process.env.NODE_ENV == 'production';
-const style = ['libs/font-awesome.css', 'libs/normalize.css'];
-const libs = ['libs/react.js', 'libs/react-dom.js', 'libs/react-router-dom.js'];
-
-
 module.exports = {
     entry: {
         main: './src/main.jsx'
@@ -22,6 +17,14 @@ module.exports = {
                     use: [
                         {
                             loader: 'css-loader'
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [
+                                    require('autoprefixer')()
+                                ]
+                            }
                         },
                         {
                             loader: 'less-loader', options: { javascriptEnabled: true }

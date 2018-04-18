@@ -10,8 +10,6 @@ webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: true 
 // 清理
 webpackConfig.plugins.unshift(new CleanWebpackPlugin(webpackConfig.output.path));
 
-console.log(webpackConfig.output.path)
-
 // 编译
 webpack(webpackConfig).run(function (err, stats) {
     if (err) {
