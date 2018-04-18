@@ -7,13 +7,12 @@ import NotFound from './pages/404.jsx';
 
 import 'antd/dist/antd.less';
 
-
 class App extends Component {
     render(){
         return (
             <Router>
                 <Switch>
-                    <Route exact strict path="/home" component={Home} />
+                    <Route exact path="/home" component={Home} />
                     <Route component={NotFound} />
                     <Redirect from="/" to="/home" />
                 </Switch>

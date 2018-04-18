@@ -1,7 +1,8 @@
 import React from 'react';
+import Button from 'antd/es/button';
 
 function NotFound(){
-    return <p>未找到！</p>;
+    return <Button>未找到</Button>;
 }
 
 export default NotFound;

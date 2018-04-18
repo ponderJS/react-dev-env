@@ -1,6 +1,8 @@
 import React from 'react';
+import Button from 'antd/es/button';
+
 function Home(){
-    return <p>首页</p>;
+    return <Button>首页</Button>;
 }
 
 export default Home;
