@@ -6,7 +6,7 @@ let webpack = require('webpack'),
 
 // 启动服务
 new WebpackDevServer(webpack(webpackConfig), {
-    contentBase: __dirname,
+    contentBase: __dirname + '/src',
     historyApiFallback: {
         verbose: true
     },

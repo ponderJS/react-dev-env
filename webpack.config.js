@@ -44,6 +44,6 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({ filename: '[name].[hash:6].css' }),
-        new HtmlWebpackPlugin({ template: './template.ejs' })
+        new HtmlWebpackPlugin({ template: './src/index.html' })
     ]
 }

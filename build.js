@@ -12,8 +12,9 @@ webpackConfig.plugins.unshift(new CleanWebpackPlugin(webpackConfig.output.path))
 // 拷贝
 webpackConfig.plugins.push(new CopyWebpackPlugin(
     [
-        { from: './fonts', to: webpackConfig.output.path+'/fonts/' },
-        { from: './images', to: webpackConfig.output.path+'images/' }
+        { from: './src/images', to: webpackConfig.output.path + '/images' },
+        { from: './src/fonts', to: webpackConfig.output.path + '/fonts' },
+        { from: './src/utils', to: webpackConfig.output.path + '/utils' }
     ],
     {
         copyUnmodified: true
