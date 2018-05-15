@@ -1,5 +1,7 @@
-let ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+let publicPath = '/';
+
+let HtmlWebpackPlugin = require('html-webpack-plugin'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -7,7 +9,8 @@ module.exports = {
     },
     output: {
         filename: '[name].[hash:6].js',
-        path: __dirname + '/dist'
+        path: __dirname + '/dist',
+        publicPath: publicPath
     },
     module: {
         rules: [
@@ -30,7 +33,12 @@ module.exports = {
                             }
                         },
                         {
-                            loader: 'less-loader', options: { javascriptEnabled: true }
+                            loader: 'less-loader', options: { 
+                                javascriptEnabled: true,
+                                modifyVars:{
+                                    '@icon-url': '"' + ( publicPath || '/' ) + 'static/font_148784_v4ggb6wrjmkotj4i' + '"',
+                                }
+                            }
                         }
                     ]
                 })

@@ -1,21 +1,13 @@
-@import "~antd/dist/antd.less";
+@import '~antd/lib/style/themes/default.less';
 
-/*
-* 本地字体
-*/
-@font-face {
-    font-family: 'anticon';
-    src: url('libs/font_148784_v4ggb6wrjmkotj4i.eot');
-    /* IE9*/
-    src: url('libs/font_148784_v4ggb6wrjmkotj4i.woff') format('woff'), 
-    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ 
-    url('libs/font_148784_v4ggb6wrjmkotj4i.ttf') format('truetype'), 
-    /* iOS 4.1- */ 
-    url('libs/font_148784_v4ggb6wrjmkotj4i.svg#iconfont') format('svg');
-  }
+.@{ant-prefix}-btn{
+    line-height:1.45em;
+}
 
-@btn-prefix-cls: ~"@{ant-prefix}-btn";
-
-.@{btn-prefix-cls} {
-    line-height: 1.45em;
+#wrapper > div{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }

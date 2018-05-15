@@ -21,4 +21,4 @@ class App extends Component {
     }
 }
 
-Render(<App />, document.getElementById('root'));
+Render(<App />, document.getElementById('wrapper'));
