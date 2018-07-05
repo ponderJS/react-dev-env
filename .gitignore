@@ -2,9 +2,11 @@
 
 node_modules/
 $RECYCLE.BIN/
+.cache/
 .vscode/
 
 build/
+dist/
 node_modules/
 .idea/
 *.bak
