@@ -2,7 +2,7 @@ import engine from 'store/src/store-engine';
 import localStorage from 'store/storages/localStorage';
 import cookieStorage from 'store/storages/cookieStorage';
 
-import { prefix } from './consts';
+import { prefix } from './index';
 
 let tokenVal;
 let tokenKey = `${prefix}token`;
