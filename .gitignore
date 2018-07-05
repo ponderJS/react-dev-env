@@ -8,6 +8,7 @@ $RECYCLE.BIN/
 build/
 dist/
 node_modules/
+.cache/
 .idea/
 *.bak
 *.tmp
