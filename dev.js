@@ -1,16 +1,28 @@
 process.env.NODE_ENV = 'development';
 
-let webpack = require('webpack'),
+let port = 9090,
+    open = require('opn'),
+    address = require('ip').address(),
+    platform = require('os').platform(),
+    webpack = require('webpack'),
     webpackConfig = require('./webpack.config.js'),
     WebpackDevServer = require('webpack-dev-server');
 
+// 开发环境统一部署为本地地址
+let publicPath = `http://${address}:${port}/`;
+webpackConfig.output.publicPath = publicPath;
+
 // 启动服务
-new WebpackDevServer(webpack(webpackConfig), {
+new WebpackDevServer(webpack(webpackConfig, callback), {
     contentBase: __dirname + '/src',
     historyApiFallback: {
         verbose: true
     },
     proxy: {
-        '/api': '/api'
+        '/api': 'http://xxx.xxx.xxx.xxx:8080/'
     }
 }).listen(9090);
+
+function callback() {
+    open(publicPath, { app: platform.toLowerCase() === 'win32' ? 'chrome' : 'google chrome' });
+}

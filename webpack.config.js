@@ -1,16 +1,14 @@
-let publicPath = '/';
-
 let HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        main: './src/main.jsx'
+        index: './src/index.js'
     },
     output: {
-        filename: '[name].[hash:6].js',
-        path: __dirname + '/dist',
-        publicPath: publicPath
+        filename: '[hash:12].js',
+        chunkFilename: '[chunkhash:12].js',
+        path: __dirname + '/dist'
     },
     module: {
         rules: [
@@ -20,23 +18,15 @@ module.exports = {
                     use: [
                         {
                             loader: 'css-loader',
-                            options: {
-                                url: false
-                            }
+                            options: {}
                         },
                         {
-                            loader: 'postcss-loader',
+                            loader: 'less-loader',
                             options: {
-                                plugins: [
-                                    require('autoprefixer')()
-                                ]
-                            }
-                        },
-                        {
-                            loader: 'less-loader', options: { 
                                 javascriptEnabled: true,
-                                modifyVars:{
-                                    '@icon-url': '"' + ( publicPath || '/' ) + 'static/font_148784_v4ggb6wrjmkotj4i' + '"',
+                                modifyVars: {
+                                    // 变量替换时注意路径要嵌套一层引号，因此不能用变量
+                                    '@icon-url': '"../../../../../src/assets/font_148784_v4ggb6wrjmkotj4i"'
                                 }
                             }
                         }
@@ -44,14 +34,39 @@ module.exports = {
                 })
             },
             {
-                test: /\.jsx?$/i,
-                exclude:'/node_modules/',
+                test: /\.js[x]?$/i,
+                exclude: /node_modules/,
                 use: ['babel-loader']
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'images/'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(eot|woff|ttf|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'fonts/'
+                        }
+                    }
+                ]
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin({ filename: '[name].[hash:6].css' }),
-        new HtmlWebpackPlugin({ template: './src/index.html' })
+        new ExtractTextPlugin({ filename: '[hash:12].css' }),
+        new HtmlWebpackPlugin({
+            favicon: './src/favicon.ico',
+            template: './src/index.html'
+        })
     ]
 }
