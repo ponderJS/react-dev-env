@@ -11,6 +11,8 @@ let port = 9090,
 // 开发环境统一部署为本地地址
 let publicPath = `http://${address}:${port}/`;
 webpackConfig.output.publicPath = publicPath;
+// 编译自动刷新页面
+webpackConfig.entry.vendor.push('webpack-dev-server/client');
 
 // 启动服务
 new WebpackDevServer(webpack(webpackConfig, callback), {

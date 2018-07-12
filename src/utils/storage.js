@@ -5,6 +5,7 @@ import cookieStorage from 'store/storages/cookieStorage';
 import { prefix } from './index';
 
 let tokenVal;
+let prefix = '';
 let tokenKey = `${prefix}token`;
 let storage = engine.createStore([localStorage, cookieStorage], []);
 
@@ -34,4 +35,4 @@ function removeItem(key) {
     return storage.remove(prefix + key);
 }
 
-export { storage, setToken, getToken, removeToken, setItem, getItem, removeItem };
+export { storage, setToken, getToken, removeToken, setItem, getItem, removeItem, prefix };

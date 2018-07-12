@@ -1,13 +1,15 @@
-let HtmlWebpackPlugin = require('html-webpack-plugin'),
+let webpack = require('webpack'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
+        vendor: ['react', 'react-dom'],
         index: './src/index.js'
     },
     output: {
-        filename: '[hash:12].js',
-        chunkFilename: '[chunkhash:12].js',
+        filename: '[id][hash].js',
+        chunkFilename: '[chunkhash].js',
         path: __dirname + '/dist'
     },
     module: {
@@ -63,7 +65,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin({ filename: '[hash:12].css' }),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
+        new ExtractTextPlugin({ filename: '[contenthash].css' }),
         new HtmlWebpackPlugin({
             favicon: './src/favicon.ico',
             template: './src/index.html'

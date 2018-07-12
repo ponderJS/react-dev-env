@@ -11,8 +11,7 @@ function obj2querystring(obj) {
     return qs.join('&');
 }
 
-const prefix = '';
 
-export { obj2querystring, prefix };
-export { default } from './network';
-export { setToken, getToken, removeToken, setItem, getItem, removeItem } from './storage';
+export { obj2querystring };
+export { default as network } from './network';
+export { setToken, getToken, removeToken, setItem, getItem, removeItem, prefix } from './storage';
